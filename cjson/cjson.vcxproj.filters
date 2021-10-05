@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\test">
+      <UniqueIdentifier>{18486d1b-6ae3-4d80-9202-5d9bae311195}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\json.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test.hpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\json.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test\null.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\true.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\false.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\number.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\string.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\array.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\object.json">
+      <Filter>src\test</Filter>
+    </None>
+    <None Include="test\copy.json" />
+    <None Include="test\paste.json" />
+  </ItemGroup>
+</Project>
