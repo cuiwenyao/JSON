@@ -1,8 +1,9 @@
 {
   "name": "´ŞÎÄÒ«",
-  "null_test": null,
-  "number_test": 111,
-  "true_test": true,
-  "false_test": false,
-  "array_test": [ 9999, "array 1 string"]
+  "null": null,
+  "number": 111,
+  "bool": true,
+  "false": false,
+  "array_double": [ 1, 2, 3, 4, 5, 6 ],
+  "array_test": [ 9999, "array 1 string" ]
 }

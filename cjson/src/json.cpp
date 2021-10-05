@@ -379,11 +379,11 @@ void JSON::Json::stringify_string(const Json_data* root, std::string& str)
 void JSON::Json::stringify_array(const Json_data* root, std::string& str)
 {
 	// [ 1 , 2 ]
-	str.append("[");
+	str.append("[ ");
 	for (size_t i = 0; i < root->array.size(); i++)
 	{	
 		this->stringify_token(root->array.at(i), str);
-		str.append(",");
+		str.append(", ");
 	}
 	str.at(str.size() - 1) = ']';
 }

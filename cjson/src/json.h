@@ -326,13 +326,22 @@ namespace JSON
 		//删除运算符
 		void operator-(std::string key)
 		{
-			;
+			//删除对象的某一个键值对
+			this->object.erase(key);
 		}
-
-
-	}Json_data, & Operator;
-
-
+		//删除运算符 数组元素
+		void operator-(unsigned int index)
+		{
+			if (this->type == JSON_TYPE_ARRAY)
+			{
+				for (unsigned int i = index; i < this->array.size()-1; i++)
+				{
+					*this->array.at(i) = *this->array.at(i + 1);
+				}
+				this->array.pop_back();
+			}
+		}
+	}Json_data, &Operator;
 
 
 	class Json
@@ -341,12 +350,11 @@ namespace JSON
 		void parse(const char* path);
 		void stringify(const char* path);
 		Operator get_operator();
-		Json_data* root = NULL;
-		size_t line_num = 0;
+
 
 	private:
-
-
+		Json_data* root = NULL;
+		size_t line_num = 0;
 		void skip_white_space(size_t& index, std::string& str);
 		void skip_row(size_t& index, std::string& str);
 		void parse_token(Json_data* root, size_t& index, std::string& str);

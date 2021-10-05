@@ -51,5 +51,6 @@
     <None Include="test\paste.json" />
     <None Include="test\set_value.json" />
     <None Include="test\stringify.json" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

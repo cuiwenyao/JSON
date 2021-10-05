@@ -148,6 +148,7 @@
     <ClInclude Include="src\json.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="test\array.json" />
     <None Include="test\copy.json" />
     <None Include="test\false.json" />
