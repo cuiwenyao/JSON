@@ -49,5 +49,7 @@
     </None>
     <None Include="test\copy.json" />
     <None Include="test\paste.json" />
+    <None Include="test\set_value.json" />
+    <None Include="test\stringify.json" />
   </ItemGroup>
 </Project>

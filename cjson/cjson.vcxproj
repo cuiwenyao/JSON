@@ -155,7 +155,9 @@
     <None Include="test\number.json" />
     <None Include="test\object.json" />
     <None Include="test\paste.json" />
+    <None Include="test\set_value.json" />
     <None Include="test\string.json" />
+    <None Include="test\stringify.json" />
     <None Include="test\true.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
