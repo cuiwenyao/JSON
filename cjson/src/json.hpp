@@ -32,9 +32,8 @@ namespace JSON
 			std::vector<double> v(value);
 			*this = v;
 		}
-		// { {"1", 1}, { "2",true }, { "3",(void*)nullptr }};
 		//key:number 初始化为一个键值对(以object的方式存储，即size为一的map)  
-		//op("answer") = { {"1", 1}, { "2",true }, { "3",(void*)nullptr }};
+		//op("answer") = { {"1", 1}, { "2",true }, { "3",nullptr }};
 		struct JSON_DATA( std::string key, double number)
 		{
 			this->type = JSON_TYPE_OBJECT;
@@ -59,7 +58,7 @@ namespace JSON
 			this->object.insert(std::pair<std::string, struct JSON_DATA*>(str, new_json_data));
 		}
 		// key:null
-		struct JSON_DATA(std::string key, void*ptr)
+		struct JSON_DATA(std::string key, std::nullptr_t ptr)
 		{
 			this->type = JSON_TYPE_OBJECT;
 			this->object.clear();
@@ -227,7 +226,7 @@ namespace JSON
 		}
 
 		// operator["1"]= nullptr
-		void operator=(void* ptr)
+		void operator=(std::nullptr_t ptr)
 		{
 			if (ptr == NULL)
 			{
@@ -341,6 +340,8 @@ namespace JSON
 				this->array.pop_back();
 			}
 		}
+		//递归打印自身的数据（包含子节点）
+		void print_data();
 	}Json_data, &Operator;
 
 
@@ -349,6 +350,7 @@ namespace JSON
 	public:
 		void parse(const char* path);
 		void stringify(const char* path);
+		void stringify(std::string& str,Json_data* root);
 		Operator get_operator();
 
 
@@ -377,6 +379,13 @@ namespace JSON
 	};
 }
 
+void JSON::JSON_DATA::print_data()
+{
+	std::string str;
+	Json js;
+	js.stringify(str, this);
+	std::cout << str << std::endl;
+}
 
 void JSON::Json::parse(const char* path)
 {
@@ -684,6 +693,16 @@ void JSON::Json::parse_token_object(Json_data* root, size_t& index, std::string&
 
 	//std::cout << "解析出一个 object: " << std::endl;
 	return;
+}
+
+void JSON::Json::stringify(std::string& str, Json_data* root)
+{
+	//将数据放在string中
+	if (!root)
+	{
+		root = this->root;
+	}
+	this->stringify_token(root, str);
 }
 void JSON::Json::stringify(const char* path)
 {

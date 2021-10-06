@@ -209,7 +209,7 @@ void test_use()
 	//解析
 	js.parse("C:/Users/admin/source/repos/cjson/cjson/test/object.json");
 	//获取操作句柄
-	JSON::Operator& op = js.get_operator();
+	JSON::Operator op = js.get_operator();
 	//获取string
 	std::cout << op["name"].get_string() << std::endl;;
 	//获取bool
@@ -247,7 +247,7 @@ void test_use()
 	//直接修改数组
 	op("array") = { 1,2,3 };
 	//数组添加任意类型数据
-	op("array")(1) = (void*)nullptr;
+	op("array")(1) = nullptr;
 	op("array")(2) = true;
 	op("array")(3) = false;
 	op("array")(4) = (double)100;
@@ -263,9 +263,9 @@ void test_use()
 	//  生成一个键值对 
 	op("array")(1) = { "1",1.0 };
 	op("array")(2) = { "2",true };
-	op("array")(1) = { {"1",1.0}, {"2",true},{"3",(void*)nullptr},{"4","string"} };
+	op("array")(1) = { {"1",1.0}, {"2",true},{"3",nullptr},{"4","string"} };
 	//嵌套
-	op("array")(1)("1") = { {"1 in 1",1.0}, {"2",true},{"3",(void*)nullptr},{"4","string"},{"5",{1,2,3,4}} };
+	op("array")(1)("1") = { {"1 in 1",1.0}, {"2",true},{"3",nullptr},{"4","string"},{"5",{1,2,3,4}} };
 	//修改
 	op("array")(1)("1")("1 in 1") = "1 in 1 的值变为了 9.0";
 	//覆盖
@@ -290,6 +290,24 @@ void test_use()
 	js.stringify("C:/Users/admin/source/repos/cjson/cjson/test/set_value.json");
 }
 
+void use()
+{
+	Json_data jd = { 1,2,3 };
+	jd.print_data();
+	jd = { "key", true};
+	jd.print_data();
+	jd = { "key", nullptr };
+	jd.print_data();
+	jd = { "key", 111.0 };
+	jd.print_data();
+	jd = { "key", "string" };
+	jd.print_data();
+	jd = { "key", {1,2,3} };
+	jd.print_data();
+	jd = { {"key1", {1,2,3}},{"key2",true}};
+	jd.print_data();
+}
+
 void test()
 {
 	//test_null();
@@ -303,4 +321,5 @@ void test()
 	//test_set_value();
 	//test_deep_copy();
 	test_use();
+	use();
 }

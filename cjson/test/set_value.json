@@ -22,11 +22,11 @@
 "false" : false,
 "happy" : true,
 "name" : "niels",
-"nothing" : null,
+"nothing" : false,
 "null" : null,
 "number" : 111.000000,
 "object" : {
-"obj_2" : null,
+"obj_2" : false,
 "obj_3" : true,
 "obj_4" : "this is obj_4",
 "obj_5" : []
