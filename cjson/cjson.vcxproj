@@ -140,12 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\json.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\test.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\json.h" />
+    <ClInclude Include="src\json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

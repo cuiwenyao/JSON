@@ -1,5 +1,5 @@
 #pragma once
-#include "json.h"
+#include "json.hpp"
 unsigned int TEST_NUM;
 unsigned int PASS_NUM;
 
@@ -288,7 +288,6 @@ void test_use()
 	op("object")("obj_5") - (0);
 
 	js.stringify("C:/Users/admin/source/repos/cjson/cjson/test/set_value.json");
-
 }
 
 void test()
